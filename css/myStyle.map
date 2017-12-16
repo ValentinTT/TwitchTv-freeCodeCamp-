@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../scss/myStyle.css",
+	"sources": [
+		"../scss/myStyle.scss"
+	],
+	"sourcesContent": [
+		"body {\n  font-family: 'Roboto Slab', serif;\n  color: #FAFAFF;\n\n}\n\nheader {\t\n\ttext-align: center;\n\th1 {\n\t\tpadding-top: 26px;\n\t}\n}"
+	],
+	"mappings": ";AAAA,AAAA,IAAI,CAAC;EACH,WAAW,EAAE,oBAAqB;EAClC,KAAK,EAAE,OAAQ;CAEhB;;;AAED,AAAA,MAAM,CAAC;EACN,UAAU,EAAE,MAAO;CAInB;;;AALD,AAEC,MAFK,CAEL,EAAE,CAAC;EACF,WAAW,EAAE,IAAK;CAClB",
+	"names": []
+}
