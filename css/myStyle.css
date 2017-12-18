@@ -1,32 +1,34 @@
 html, body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
 }
 
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Bungee', cursive;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  flex-wrap: wrap;
 }
 
 /*Flex*/
 main {
-  background: #301A57;
-  flex-grow: 1;
+  background: #008080;
+  flex-basis: 100%;
   display: grid;
-  grid-template-columns: 1fr 4fr	1fr;
+  grid-template-columns: 1fr 5fr	1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "header header header" ". search ." ". article ." "footer footer footer";
 }
 
 header {
+  background: #301A57;
   grid-area: header;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   padding-top: 20px;
-  background: #6441A4;
   z-index: 10;
   -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
@@ -35,14 +37,14 @@ header {
 
 header h1 {
   margin: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 .search-container {
+  background: #fff;
   grid-area: search;
   display: flex;
   padding: 10px;
-  background: #fff;
 }
 
 .search-container .search-icon-container {
@@ -60,16 +62,102 @@ header h1 {
   filter: drop-shadow(1px 1px 0px #d3d3d3);
 }
 
-article {
-  grid-area: article;
+.article {
   background: #fff;
+  grid-area: article;
+  padding: 10px 40px;
+}
+
+.article .no-channel-found {
+  flex-basis: 100%;
+  display: none;
+  margin: 0;
+  text-align: center;
+}
+
+.article .search-results {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.article .search-results .channel-container {
+  background: #301A57;
+  width: 150px;
+  height: 150px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.article .search-results .channel-container .img-channel-container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: -25px;
+  top: -25px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.article .search-results .channel-container .img-channel-container .img-channel {
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  transition: border-radius transform;
+  transition-duration: .5s;
+}
+
+.article .search-results .channel-container .img-channel-container:hover .img-channel {
+  transform: translate(75px, 75px) scale(3);
+  border-radius: 5px;
+}
+
+.article .search-results .channel-container .channel-info-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -15%;
+}
+
+.article .search-results .channel-container .channel-info-container .channel-name {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+}
+
+.article .search-results .channel-container .channel-info-container a {
+  margin: 0;
+  padding: 5px 0 10px 20px;
+  color: #D7B140;
+  text-decoration: none;
+  font-size: 10px;
+  outline: none;
+}
+
+.article .search-results .channel-container .channel-info-container a:hover, .article .search-results .channel-container .channel-info-container a:focus, .article .search-results .channel-container .channel-info-container a:active {
+  opacity: .75;
+  color: #D7B140;
+  text-decoration: none;
+  outline: none;
+}
+
+.article .search-results .channel-container .channel-info-container .channel-game-description {
+  margin: 0;
+  color: #008080;
+  text-align: center;
+  font-size: 12px;
 }
 
 footer {
+  background: #301A57;
   grid-area: footer;
   display: flex;
   justify-content: center;
-  background: #6441A4;
   z-index: 10;
   -webkit-box-shadow: 1px -3px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px -3px 5px 0px rgba(0, 0, 0, 0.75);
@@ -82,5 +170,18 @@ footer .credits {
 }
 
 footer .credits a {
-  color: #000;
+  color: #008080;
+}
+
+footer .credits a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  main {
+    grid-template-areas: "header header header" "search search search" "article article article" "footer footer footer";
+  }
+  article {
+    padding: 10px 20px;
+  }
 }
